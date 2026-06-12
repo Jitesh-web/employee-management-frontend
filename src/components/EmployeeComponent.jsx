@@ -73,6 +73,7 @@ const EmployeeComponent = () => {
     }
   };
 
+  //Adding this function to check validation before user submit form to avoid null data
   const validateForm = () => {
     let valid = true;
 
