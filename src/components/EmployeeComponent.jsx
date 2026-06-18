@@ -35,6 +35,7 @@ const EmployeeComponent = () => {
     }
   }, [id]);
 
+  //Save and update function
   const saveOrUpdateEmployee = (e) => {
     e.preventDefault();
 
