@@ -1,6 +1,7 @@
 import axios from "axios";
-
-const REST_API_BASE_URL = "http://localhost:8091/api/employees";
+//http://localhost:8091/api/employees
+//http://13.207.192.252:8091/api/employees
+const REST_API_BASE_URL = "http://13.207.192.252:8091/api/employees";
 
 export const listEmployees = () => {
   return axios.get(REST_API_BASE_URL);
