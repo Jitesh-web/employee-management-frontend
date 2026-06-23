@@ -43,7 +43,16 @@ const ListEmployeeComponent = () => {
 
   return (
     <div className="container">
-      <h2 className="text-center bg-purple">List of Employees</h2>
+      <h2
+        className="text-center"
+        style={{
+          backgroundColor: "red",
+          color: "white",
+          padding: "10px",
+        }}
+      >
+        List of Employees
+      </h2>
       <button className="btn btn-primary mb-2" onClick={addNewEmployee}>
         Add Employee
       </button>
