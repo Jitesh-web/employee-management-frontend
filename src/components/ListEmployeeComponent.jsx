@@ -45,11 +45,6 @@ const ListEmployeeComponent = () => {
     <div className="container">
       <h2
         className="text-center"
-        style={{
-          backgroundColor: "red",
-          color: "white",
-          padding: "10px",
-        }}
       >
         List of Employees
       </h2>
