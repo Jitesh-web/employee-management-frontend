@@ -23,6 +23,7 @@ const ListEmployeeComponent = () => {
       });
   };
 
+  //Add new Employee
   const addNewEmployee = () => {
     navigator("/add-employee");
   };
