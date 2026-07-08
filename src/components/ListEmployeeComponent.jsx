@@ -33,6 +33,7 @@ const ListEmployeeComponent = () => {
     navigator(`/update-employee/${employeeId}`);
   };
 
+  //delete
   const deleteEmployeeById = (employeeId) => {
     deleteEmployee(employeeId)
       .then((response) => {
