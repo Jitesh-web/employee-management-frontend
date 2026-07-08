@@ -27,6 +27,7 @@ const ListEmployeeComponent = () => {
     navigator("/add-employee");
   };
 
+  //update
   const updateEmployee = (employeeId) => {
     navigator(`/update-employee/${employeeId}`);
   };
