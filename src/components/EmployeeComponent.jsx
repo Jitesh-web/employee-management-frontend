@@ -10,11 +10,13 @@ const EmployeeComponent = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [department, setDepartment] = useState("");
 
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
     email: "",
+    department: "",
   });
 
   const navigator = useNavigate();
@@ -24,10 +26,11 @@ const EmployeeComponent = () => {
     if (id) {
       getEmployeeById(id)
         .then((response) => {
-          const { firstName, lastName, email } = response.data;
+          const { firstName, lastName, email, department } = response.data;
           setFirstName(firstName);
           setLastName(lastName);
           setEmail(email);
+          setDepartment(department);
         })
         .catch((error) => {
           console.log(error);
@@ -44,6 +47,7 @@ const EmployeeComponent = () => {
         firstName: firstName,
         lastName: lastName,
         email: email,
+        department: department,
       };
 
       if (id) {
@@ -53,6 +57,7 @@ const EmployeeComponent = () => {
             setFirstName("");
             setLastName("");
             setEmail("");
+            setDepartment("");
             navigator("/employees");
           })
           .catch((error) => {
@@ -65,6 +70,7 @@ const EmployeeComponent = () => {
             setFirstName("");
             setLastName("");
             setEmail("");
+            setDepartment("");
             navigator("/employees");
           })
           .catch((error) => {
@@ -98,6 +104,13 @@ const EmployeeComponent = () => {
       errorCopy.email = "";
     } else {
       errorCopy.email = "Email is required";
+      valid = false;
+    }
+
+    if (department.trim()) {
+      errorCopy.department = "";
+    } else {
+      errorCopy.department = "Department is required";
       valid = false;
     }
 
@@ -162,6 +175,20 @@ const EmployeeComponent = () => {
                 ></input>
                 {errors.email && (
                   <div className="invalid-feedback">{errors.email}</div>
+                )}
+              </div>
+              <div className="form-group mb-2">
+                <label>Department:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Department"
+                  name="department"
+                  value={department}
+                  className={`form-control ${errors.department ? "is-invalid" : ""}`}
+                  onChange={(e) => setDepartment(e.target.value)}
+                ></input>
+                {errors.department && (
+                  <div className="invalid-feedback">{errors.department}</div>
                 )}
               </div>
               <button

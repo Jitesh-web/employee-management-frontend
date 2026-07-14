@@ -16,7 +16,7 @@ const ListEmployeeComponent = () => {
     const result = listEmployees();
     result
       .then((response) => {
-        setEmployees(response.data);
+        setEmployees(response?.data?.content);
       })
       .catch((error) => {
         console.log(error);
@@ -46,11 +46,7 @@ const ListEmployeeComponent = () => {
 
   return (
     <div className="container">
-      <h2
-        className="text-center"
-      >
-        List of Employees
-      </h2>
+      <h2 className="text-center">List of Employees</h2>
       <button className="btn btn-primary mb-2" onClick={addNewEmployee}>
         Add Employee
       </button>
@@ -61,6 +57,7 @@ const ListEmployeeComponent = () => {
             <th>Employee FirstName</th>
             <th>Employee LastName</th>
             <th>Employee Email</th>
+            <th>Employee Department</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -72,6 +69,7 @@ const ListEmployeeComponent = () => {
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
                 <td>{employee.email}</td>
+                <td>{employee.department}</td>
                 <td>
                   <button
                     className="btn btn-info"
